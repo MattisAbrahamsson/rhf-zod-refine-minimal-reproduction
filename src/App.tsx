@@ -14,7 +14,7 @@ const schema = z
             ctx.addIssue({
                 code: z.ZodIssueCode.custom,
                 message: "First name is required if last name is provided",
-                path: ["firstName", "lastName"],
+                path: ["firstName"],
             });
         }
 
@@ -47,7 +47,7 @@ function App() {
                 <input
                     {...form.register("lastName")}
                     className={classNames(classes.input, {
-                        error: form.formState.errors.lastName,
+                        [classes.error]: form.formState.errors.lastName,
                     })}
                 />
             </label>
